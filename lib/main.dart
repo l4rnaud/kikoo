@@ -18,8 +18,8 @@ class Main extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.center,   
           children: [
             CardContact(contact: Contact(nom: 'Papa',mobile: '0692112233')),
-            CardContact(contact: Contact(nom: 'Maman',mobile: '0692112233')),
-            CardContact(contact: Contact(nom: 'Angélique',mobile: '0692112233')),
+            CardContact(contact: Contact(nom: 'Maman',mobile: '0692773338')),
+            CardContact(contact: Contact(nom: 'Angélique',mobile: '0692012345')),
         ]),
       ),
     );

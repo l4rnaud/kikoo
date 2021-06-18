@@ -3,10 +3,14 @@ Author : Lesly ARNAUD (l4rnaud)
 Widget : Creation d'une liste d'action
 */
 import 'package:flutter/material.dart';
+import 'package:kikoo/src/models/Contact.dart';
 import 'package:kikoo/src/widgets/MessageSimpleDialog.dart';
+import 'package:flutter_phone_direct_caller/flutter_phone_direct_caller.dart';
 
 class CardContactActions extends StatelessWidget {
-  const CardContactActions({Key? key}) : super(key: key);
+  const CardContactActions({required this.contact});
+
+  final Contact contact;
 
   @override
   Widget build(BuildContext context) {
@@ -28,7 +32,9 @@ class CardContactActions extends StatelessWidget {
               child: IconButton(
                 icon: const Icon(Icons.call),
                 color: Colors.blue,
-                onPressed: () {},
+                onPressed: () async{
+                  FlutterPhoneDirectCaller.callNumber(contact.mobile);
+                },
               ),
             ),
             CircleAvatar(

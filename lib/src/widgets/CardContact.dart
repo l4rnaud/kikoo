@@ -54,7 +54,7 @@ class CardContact extends StatelessWidget {
             ],
           )
         ),
-        CardContactActions()
+        CardContactActions(contact: contact)
       ],
     );
   }
