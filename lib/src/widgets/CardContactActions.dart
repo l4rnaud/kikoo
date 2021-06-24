@@ -8,9 +8,20 @@ import 'package:kikoo/src/widgets/MessageSimpleDialog.dart';
 import 'package:flutter_phone_direct_caller/flutter_phone_direct_caller.dart';
 
 class CardContactActions extends StatelessWidget {
-  const CardContactActions({required this.contact});
+  const CardContactActions(
+      {required this.contact,
+      required this.dateContact,
+      required this.onChanged});
 
   final Contact contact;
+
+  final String dateContact;
+
+  final ValueChanged<String> onChanged;
+
+  void _handleContact(String lastContact) {
+    onChanged(lastContact);
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -32,7 +43,7 @@ class CardContactActions extends StatelessWidget {
               child: IconButton(
                 icon: const Icon(Icons.call),
                 color: Colors.blue,
-                onPressed: () async{
+                onPressed: () async {
                   FlutterPhoneDirectCaller.callNumber(contact.mobile);
                 },
               ),
@@ -47,8 +58,9 @@ class CardContactActions extends StatelessWidget {
                   showDialog(
                       context: context,
                       builder: (BuildContext context) {
-                        return MessageSimpleDialog();
-                      });
+                        return MessageSimpleDialog(
+                            contactNumber: contact.mobile);
+                      }).then((value) =>{print('Go: '+value), _handleContact(value)});                  
                 },
               ),
             ),
