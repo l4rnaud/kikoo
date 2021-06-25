@@ -24,7 +24,7 @@ class MessageSimpleDialog extends StatelessWidget {
     );
   }
 
-  void _sendSMS(String message, BuildContext context) async {
+  void _sendSMS(String message) async {
     final Telephony telephony = Telephony.instance;
     final bool? result = await telephony.requestSmsPermissions;
     if (result != null && result) {
@@ -56,7 +56,7 @@ class MessageSimpleDialog extends StatelessWidget {
         ),
         SimpleDialogOption(
           onPressed: () {
-            _sendSMS(callme, context);
+            _sendSMS(callme);
             Navigator.pop(context, new DateTime.now());
           },
           child: const Text(callme),
@@ -68,7 +68,7 @@ class MessageSimpleDialog extends StatelessWidget {
         ),
         SimpleDialogOption(
           onPressed: () {
-            _sendSMS(takeme, context);
+            _sendSMS(takeme);
             Navigator.pop(context, new DateTime.now());
           },
           child: const Text(takeme),
@@ -80,7 +80,7 @@ class MessageSimpleDialog extends StatelessWidget {
         ),
         SimpleDialogOption(
           onPressed: () {
-            _sendSMS(iamthere, context);
+            _sendSMS(iamthere);
             Navigator.pop(context, new DateTime.now());
           },
           child: const Text(iamthere),
