@@ -32,6 +32,8 @@ dependencies:
   flutter_phone_direct_caller: ^2.0.0
   # Gestion des sms
   telephony: ^0.1.4
+  # Gestion des nitofications (toast)
+  fluttertoast: ^8.0.7
 
 dev_dependencies:
   flutter_test:
